@@ -1,0 +1,10 @@
+INDEX VERSION 1.127+D:\MyGit\weatherDemo\.metadata\.plugins\org.eclipse.jdt.core
+183996171.index
+3035280799.index
+1273454831.index
+4162361451.index
+39079210.index
+1697589865.index
+857415297.index
+3086617553.index
+3362353523.index

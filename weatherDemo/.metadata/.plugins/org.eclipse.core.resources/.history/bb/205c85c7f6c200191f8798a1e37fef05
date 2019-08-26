@@ -1,0 +1,44 @@
+package com.zhao.demo;
+
+import java.io.IOException;
+import java.util.*;
+
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+
+public class SendQQMailUtil {
+	public static void main(String[] args) throws AddressException, MessagingException {
+		String str = NewsReport.GetNewsTop();
+		Properties properties = new Properties();
+		properties.put("mail.transport.protocol", "smtp");
+		properties.put("mail.smtp.host", "smtp.qq.com");
+		properties.put("mail.smtp.port", 465);
+		properties.put("mail.smtp.auth", "true");
+		properties.put("mail.smtp.ssl.enable", "true");
+		properties.put("mail.debug", "true");
+		// �õ��ػ�����
+		Session session = Session.getInstance(properties);
+		// ��ȡ�ʼ�����
+		Message message = new MimeMessage(session);
+		// ���÷����������ַ
+		message.setFrom(new InternetAddress("412550708@qq.com"));
+		// �����ռ��������ַ
+		message.setRecipients(Message.RecipientType.TO, new InternetAddress[] { new InternetAddress("xxx@qq.com"),
+				new InternetAddress("xxx@qq.com"), new InternetAddress("xxx@qq.com") });
+		// message.setRecipient(Message.RecipientType.TO, new
+		// InternetAddress("xxx@qq.com"));//һ���ռ���
+		// �����ʼ�����
+		message.setSubject("xmqtest");
+		// �����ʼ�����
+		message.setText(str);
+		// �õ��ʲ����
+		Transport transport = session.getTransport();
+		// �����Լ��������˻�
+		transport.connect("412550708@qq.com", "mahklsuqrqzkbhhh");// ����ΪQQ���俪ͨ��stmp�����õ��Ŀͻ�����Ȩ��
+		// �����ʼ�
+		transport.sendMessage(message, message.getAllRecipients());
+		transport.close();
+	}
+
+}

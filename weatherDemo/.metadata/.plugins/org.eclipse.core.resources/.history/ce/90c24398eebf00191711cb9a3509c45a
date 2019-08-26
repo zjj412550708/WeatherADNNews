@@ -1,0 +1,9 @@
+package com.zhao.demo;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+public class WeatherReportByCity {
+	
+	
+}
